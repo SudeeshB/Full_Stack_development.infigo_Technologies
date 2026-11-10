@@ -1,0 +1,220 @@
+:root {
+  --cream: #fff8e9;
+  --orange: #e87532;
+  --dark: #30231d;
+  --green: #506b43;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--dark);
+  background: var(--cream);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  min-height: 90vh;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: white;
+  background:
+    linear-gradient(135deg, rgba(35, 25, 19, 0.88), rgba(89, 48, 25, 0.72)),
+    radial-gradient(circle at top right, #e87532, #30231d 65%);
+  overflow: hidden;
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  padding: 0 16px;
+  list-style: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ffd27a;
+}
+
+.hero-content {
+  width: min(100%, 900px);
+  padding-top: 70px;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.tagline {
+  margin: 0 0 34px;
+  color: #ffe4bd;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+}
+
+.taco-card {
+  width: min(100%, 530px);
+  margin: 0 auto;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.38);
+  transform-style: preserve-3d;
+  animation: float3d 5s ease-in-out infinite;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.taco-card:hover {
+  transform: perspective(900px) rotateY(-8deg) rotateX(5deg) scale(1.04);
+  box-shadow: 0 40px 85px rgba(0, 0, 0, 0.48);
+}
+
+.taco-card img {
+  display: block;
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  border-radius: 16px;
+  transform: translateZ(25px);
+}
+
+.taco-card figcaption {
+  padding: 12px 8px 4px;
+  color: #fff5e8;
+  font-weight: bold;
+  transform: translateZ(35px);
+}
+
+@keyframes float3d {
+  0%, 100% {
+    transform: perspective(900px) rotateY(7deg) rotateX(2deg) translateY(0);
+  }
+
+  50% {
+    transform: perspective(900px) rotateY(-7deg) rotateX(-2deg) translateY(-14px);
+  }
+}
+
+main {
+  width: min(100% - 32px, 850px);
+  margin: 48px auto;
+}
+
+article,
+section {
+  margin-bottom: 36px;
+}
+
+h2 {
+  color: var(--orange);
+  font-size: 2rem;
+}
+
+h3 {
+  color: var(--green);
+}
+
+details,
+table {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(48, 35, 29, 0.08);
+}
+
+details {
+  padding: 18px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+caption {
+  padding: 12px;
+  color: var(--green);
+  font-weight: bold;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid #eee4d5;
+  text-align: center;
+}
+
+thead,
+tfoot {
+  color: white;
+  background: var(--green);
+}
+
+footer {
+  padding: 22px;
+  color: white;
+  background: var(--dark);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    position: static;
+  }
+
+  .hero-content {
+    padding-top: 10px;
+  }
+
+  header {
+    min-height: auto;
+    padding: 20px 16px 50px;
+  }
+
+  .taco-card img {
+    height: 230px;
+  }
+}
